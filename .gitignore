@@ -16,7 +16,7 @@ env/
 *.pyo
 db.sqlite3
 /static/
-media/
+media/66
 
 # IDEs and editors
 .vscode/
