@@ -14,11 +14,10 @@ def create_book_normal(request: HttpRequest) -> HttpResponse:
         formset: BookFormSet = BookFormSet(request.POST)
         if formset.is_valid():
             for form in formset:
-                name: str | None = form.cleaned_data.get("name", None)
-
-                if name:
-                    Book.objects.create(name=name)
-
+                data: dict = form.cleaned_data
+                if data:
+                    # todo: think about a way that with it can handle and validate the code again and save it. for all field.
+                    Book.objects.create(**data)
             return redirect("create_book_normal")
 
     return render(
