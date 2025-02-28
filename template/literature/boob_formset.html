@@ -26,7 +26,10 @@
             const formGroup = button.closest('.form-group');
             const newFormGroup = formGroup.cloneNode(true);
             // todo: clone node add the field under + button . must add under all inputs
-            newFormGroup.querySelector('input').value = '';
+            newFormGroupInputs = newFormGroup.querySelectorAll('input')
+            newFormGroupInputs.forEach((input) => {
+                input.value = ''
+            })
             const newButton = newFormGroup.querySelector('.btn');
             newButton.textContent = '-';
             newButton.classList.remove('btn-primary');
